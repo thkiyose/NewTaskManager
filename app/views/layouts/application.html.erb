@@ -13,7 +13,7 @@
   <body>
     <header>
       <% if logged_in? %>
-        <p>ログイン中:<%= current_user.email %><%= link_to "マイページ", user_path(current_user.id) %></p>
+        <ul><li>ログイン中:<%= current_user.email %></li><li><%= link_to "マイページ", user_path(current_user.id) %></li><li><%= link_to "ログアウト", session_path(current_user.id), method: :delete %></li></ul>
       <% else %>
         <p><%= link_to "ログインする", new_session_path %></p>
       <% end %>
