@@ -4,8 +4,8 @@ class SessionsController < ApplicationController
   end
 
   def create
-    user = User.find_by(email: params[:email])
-    if user && user.authenticate(params[:password])
+    user = User.find_by(email: params[:session][:email])
+    if user && user.authenticate(params[:session][:password])
      session[:user_id] = user.id
      redirect_to user_path(user.id), notice: "ログインに成功しました。おかえりなさい、#{user.name}!"
    else
@@ -14,13 +14,10 @@ class SessionsController < ApplicationController
   end
 
   private
-    def current_user
-      current_user ||= User.find(session[:user_id])
-    end
 
     def cannot_do_when_logged_in
-      if current_user
-        redirect_to user_path(current_user.id)
+      if session[:user_id]
+        redirect_to user_path(session[:user_id])
       end
     end
 end
