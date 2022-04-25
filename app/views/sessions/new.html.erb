@@ -1,0 +1,9 @@
+<h1>ログイン</h1>
+<div class="login_form">
+  <%= form_with(scope: :session, url:sessions_path,local:true) do |form| %>
+    <p><%= form.label :email %><%= form.text_field :email %></p>
+    <p><%= form.label :password %><%= form.password_field :password %></p>
+    <p><%= form.submit %></p>
+  <% end %>
+</div>
+<p><%= link_to "新規ユーザー登録", new_user_path %></p>
