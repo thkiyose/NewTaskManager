@@ -13,7 +13,7 @@
   <body>
     <header>
       <% if logged_in? %>
-        <%= button_to "タスク追加", new_task_path %><%= link_to "一覧", tasks_path %>
+        <%= button_to "タスク追加", new_task_path, method: :get %><%= link_to "一覧", tasks_path %>
         <ul><li>ログイン中:<%= current_user.email %></li><li><%= link_to "マイページ", user_path(current_user.id) %></li><li><%= link_to "ログアウト", session_path(current_user.id), method: :delete %></li></ul>
       <% else %>
         <p><%= link_to "ログインする", new_session_path %></p>
