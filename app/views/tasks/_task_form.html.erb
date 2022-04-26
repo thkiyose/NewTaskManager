@@ -10,7 +10,7 @@
 <%= form_with(model:task,local:true) do |form| %>
   <p><%= form.label :title %>(必須)<%= form.text_field :title %></p>
   <p><%= form.label :detail %><%= form.text_area :detail %></p>
-  <p><%= form.label :importance %><%= form.select :importance, options_for_select(Task.importances.keys) %></p>
+  <p><%= form.label :importance %><%= form.select :importance,options_for_select(Task.importances.keys, task.importance) %></p>
   <p><%= form.label :limit %><%= form.date_field :limit %></p>
   <p><%= form.submit %></p>
 <% end %>
