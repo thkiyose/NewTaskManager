@@ -5,7 +5,7 @@
   </tr>
   <% @tasks.each do |task| %>
     <tr>
-      <td><%= task.title %></td><td><%= task.importance %></td><td><%= task.limit %></td><td><%= button_to "削除", task_path(task.id), method: :delete %></td>
+      <td><%= link_to "#{task.title}", task_path(task.id) %></td><td><%= task.importance %></td><td><%= task.limit %></td><td><%= button_to "削除", task_path(task.id), method: :delete %></td>
     </tr>
   <% end %>
 </table>

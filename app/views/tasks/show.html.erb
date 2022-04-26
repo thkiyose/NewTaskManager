@@ -7,11 +7,8 @@
     <th>期限:</th><td><%= @task.limit %></td>
   </tr>
   <tr>
-    <th>詳細:</th>
-  </tr>
-  <tr>
-    <td><%= @task.detail %></td>
+    <th>詳細:</th><td><%= @task.detail %></td>
   </tr>
 </table>
 
-<p><%= link_to "戻る", tasks_path %> | <%= link_to "編集", # %></p>
+<p><%= link_to "戻る", tasks_path %> | <%= link_to "編集", tasks_path %></p>
