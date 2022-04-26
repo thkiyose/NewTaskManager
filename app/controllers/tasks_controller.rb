@@ -1,6 +1,6 @@
 class TasksController < ApplicationController
   before_action :set_user, only: [:index,:new,:create]
-  before_action :cannot_do_when_logged_out, only:[:index,:new,:create, :show, :destroy]
+  before_action :cannot_do_when_logged_out
 
   def index
     @tasks = @user.tasks
@@ -25,6 +25,15 @@ class TasksController < ApplicationController
 
   def edit
     @task = Task.find(params[:id])
+  end
+
+  def update
+    @task = Task.find(params[:id])
+    if @task.update(task_params)
+      redirect_to tasks_path, notice:"タスクを編集しました。"
+    else
+      render :edit
+    end
   end
 
   def destroy
