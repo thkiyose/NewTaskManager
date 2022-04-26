@@ -1,0 +1,17 @@
+<h1><%= @task.title %></h1>
+<table>
+  <tr>
+    <th>重要度:</th><td><%= @task.importance %></td>
+  </tr>
+  <tr>
+    <th>期限:</th><td><%= @task.limit %></td>
+  </tr>
+  <tr>
+    <th>詳細:</th>
+  </tr>
+  <tr>
+    <td><%= @task.detail %></td>
+  </tr>
+</table>
+
+<p><%= link_to "戻る", tasks_path %> | <%= link_to "編集", # %></p>
