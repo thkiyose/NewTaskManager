@@ -1,6 +1,6 @@
 class TasksController < ApplicationController
   before_action :set_user, only: [:index,:new,:create]
-  before_action :cannot_do_when_logged_out, only:[:index,:new,:create]
+  before_action :cannot_do_when_logged_out, only:[:index,:new,:create, :show, :destroy]
 
   def index
     @tasks = @user.tasks
